@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/pilipili
+    url: jdbc:mysql://47.115.201.217:3306/pilipili
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 2432757689
+    password: 2432757689Hh.
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
