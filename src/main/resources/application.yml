@@ -20,3 +20,10 @@ app:
   video:
     upload-dir: /Users/hanlelin/Desktop/pilipili/videos/
 
+pagehelper:
+  helper-dialect: mysql
+  reasonable: false
+  support-methods-arguments: true
+  params: count=countSql
+  defaultCount: true
+

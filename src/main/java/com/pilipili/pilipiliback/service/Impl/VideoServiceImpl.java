@@ -17,7 +17,7 @@ public class VideoServiceImpl extends ServiceImpl<VideoMapper, Video> implements
     private VideoMapper videoMapper;
 
     @Override
-    public Video getVideoById(Integer videoid) {
+    public Video getVideo(Integer videoid) {
         return videoMapper.getVideoById(videoid);
     }
 }

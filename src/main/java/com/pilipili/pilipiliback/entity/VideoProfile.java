@@ -7,19 +7,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Data
-public class Video {
-    @JsonIgnore
+public class VideoProfile {
     @TableId("videoid")
     private Integer videoid;
 
-    @JsonIgnore
     @TableField("title")
     private String title;
 
-    @JsonIgnore
     @TableField("cover")
     private String cover;
 
+    @JsonIgnore
     @TableField("url")
     private String url;
 
@@ -27,40 +25,43 @@ public class Video {
     @TableField("zone")
     private String zone;
 
+    @JsonIgnore
     @TableField("tags")
     private String tags;
 
+    @JsonIgnore
     @TableField("abstracts")
     private String abstracts;
 
-    @JsonIgnore
     @TableField("username")
     private String username;
 
+    @JsonIgnore
     @TableField("releasetime")
     private Integer releasetime;
 
-    @JsonIgnore
     @TableField("views")
     private Integer views;
 
-    @JsonIgnore
     @TableField("barrages")
     private Integer barrages;
 
+    @JsonIgnore
     @TableField("likes")
     private Integer likes;
 
-    @JsonIgnore
     @TableField("time")
     private Integer time;
 
+    @JsonIgnore
     @TableField("collections")
     private Integer collections;
 
+    @JsonIgnore
     @TableField("comments")
     private Integer comments;
 
+    @JsonIgnore
     @TableField("forwards")
     private Integer forwards;
 }
