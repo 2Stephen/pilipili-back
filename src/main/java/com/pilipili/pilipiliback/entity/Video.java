@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.springframework.data.annotation.Transient;
 
 @Data
 public class Video {
@@ -37,17 +38,24 @@ public class Video {
     @TableField("username")
     private String username;
 
+    @JsonIgnore
+    @TableField("userid")
+    private Integer userid;
+
     @TableField("releasetime")
     private Integer releasetime;
 
     @JsonIgnore
+    @Transient
     @TableField("views")
     private Integer views;
 
+    @Transient
     @JsonIgnore
     @TableField("barrages")
     private Integer barrages;
 
+    @Transient
     @TableField("likes")
     private Integer likes;
 
@@ -55,12 +63,15 @@ public class Video {
     @TableField("time")
     private Integer time;
 
+    @Transient
     @TableField("collections")
     private Integer collections;
 
+    @Transient
     @TableField("comments")
     private Integer comments;
 
+    @Transient
     @TableField("forwards")
     private Integer forwards;
 }
