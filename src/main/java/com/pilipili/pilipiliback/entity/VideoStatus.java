@@ -13,7 +13,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 public class VideoStatus {
     @Id  // 标注为 MongoDB 的主键字段
-    private String videoId;  // 存储视频的 ID
+    private String id;
+    private Integer videoid;  // 存储视频的 ID
     private Integer likeCount;  // 点赞量
     private Integer collectCount;   // 收藏量
     private Integer viewCount;  // 观看量
@@ -21,7 +22,8 @@ public class VideoStatus {
     private Integer forwardCount;  // 转发量
     private Integer barrageCount;  // 弹幕量
 
-    public VideoStatus(Integer likeCount, Integer collectCount, Integer viewCount, Integer commentCount, Integer forwardCount, Integer barrageCount) {
+    public VideoStatus(Integer videoid ,Integer likeCount, Integer collectCount, Integer viewCount, Integer commentCount, Integer forwardCount, Integer barrageCount) {
+        this.videoid = videoid;
         this.likeCount = likeCount;
         this.collectCount = collectCount;
         this.viewCount = viewCount;

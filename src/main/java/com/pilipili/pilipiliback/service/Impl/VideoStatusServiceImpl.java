@@ -33,9 +33,13 @@ public class VideoStatusServiceImpl implements VideoStatusService{
         Integer forwardCount = (Integer) redisTemplate.opsForValue().get("forwardedCount:" + videoid);
         // 从缓存中获取弹幕数
         Integer barrageCount = (Integer) redisTemplate.opsForValue().get("barragedCount:" + videoid);
+//        log.info("从缓存中获取视频状态信息");
         // 如果上述任意一个数值为空，从数据库中获取
         if (likeCount == null || collectCount == null || viewCount == null || commentCount == null || forwardCount == null || barrageCount == null) {
-            Optional<VideoStatus> VideoStatus = videoStatusRepository.findById(videoid.toString());
+            System.out.println(videoid + "查询前时间" + System.currentTimeMillis());
+//            log.info("从数据库中获取视频状态信息");
+            Optional<VideoStatus> VideoStatus = videoStatusRepository.findByVideoid(videoid);
+            System.out.println(videoid + "查询后时间" + System.currentTimeMillis());
             // 更新缓存
             if (VideoStatus.isPresent()) {
                 if (likeCount == null) {
@@ -61,7 +65,7 @@ public class VideoStatusServiceImpl implements VideoStatusService{
                 return null;
             }
         }
-        return new VideoStatus(likeCount, collectCount, viewCount, commentCount, forwardCount, barrageCount);
+        return new VideoStatus(videoid, likeCount, collectCount, viewCount, commentCount, forwardCount, barrageCount);
     }
 
     @Override

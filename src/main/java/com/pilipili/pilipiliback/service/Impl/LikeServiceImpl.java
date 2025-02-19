@@ -50,7 +50,7 @@ public class LikeServiceImpl implements LikeService {
         // 如果缓存中没有该视频的点赞数，从数据库中获取
         if (likeCount == null) {
             // 从数据库中获取点赞数
-            Optional<VideoStatus> VideoStatus = videoStatusRepository.findById(videoid.toString());
+            Optional<VideoStatus> VideoStatus = videoStatusRepository.findByVideoid(videoid);
             if (VideoStatus.isPresent()) {
                 // 将点赞数存入缓存
                 redisTemplate.opsForValue().set("likedCount:" + videoid, VideoStatus.get().getLikeCount(),60, TimeUnit.MINUTES);
